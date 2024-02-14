@@ -1,0 +1,40 @@
+{% load static %}
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="{% static 'css/styles.css' %}">
+</head>
+
+<header>
+    <h1>Publicaciones<h1>
+</header>
+
+<article id = "fotos">
+        <ul class="lista-publicaciones">
+            {% for publicacion in publicaciones %}
+                {% if forloop.counter0|divisibleby:3 %}
+                    </ul><ul class="lista-publicaciones">
+                {% endif %}
+                <li class = "publicacionesConjunto">
+                    {% if publicacion.imagen %}
+                        <a href="{% url 'imagen' publicacion.id %}">
+                            <img src="{% static 'imagenes/' %}{{ publicacion.imagen }}"  >
+                        </a>
+                    {% endif %}
+                    <h1 href=>{{ publicacion.titulo }}</h1>
+                    <p>{{ publicacion.descripcion }}</p>
+                    <span>{{ publicacion.fecha }}</span>
+                    <p>{{ publicacion.lugar }}</p>
+                    
+                </li>
+            {% endfor %}
+        </ul>
+</article>
+
+<aside id = "lado">
+    <p>Prueba</p>
+</aside>
+
+    
+    
+    
+   

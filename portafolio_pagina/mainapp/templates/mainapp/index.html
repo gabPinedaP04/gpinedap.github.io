@@ -1,0 +1,91 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Título de la página</title>
+    <link rel="stylesheet" type="text/css" href="{% static 'css/styles.css' %}">
+
+
+</head>
+
+
+
+<div class="banner">
+    <h1 class="nombre">Gabriel Pineda</h1>
+
+    <nav>
+        <ul>
+            <li><a href="{%  url 'inicio' %}">Inicio</a></li>
+        </ul>
+        <ul>
+            <li><a href="{% url 'acerca' %}">Acerca</a></li>
+        </ul>
+        <ul>
+            <li><a href="{% url 'imagenes' %}">Imagenes</a></li>
+        </ul>
+        <ul>
+            <li><a href="#experiencia">Experiencia</a></li>
+        </ul>
+        <ul>
+            <li><a href="#contacto">Contacto</a></li>
+        </ul>
+
+    </nav>
+
+
+
+<header>
+
+    {% if imageOfTheDay %}
+    <div id="image_day_contanier">
+        <a href = "{{ imageOfTheDay }}" target="_blank"  >
+            <img src="{{ imageOfTheDay }}" alt="Imagen del día" id="image_of_the_day">
+        </a>
+    </div>
+    {% else %}
+    <p>No hay imagen del día</p>
+    {% endif %}
+</div>
+
+</header>
+
+<body>
+    
+<link rel="stylesheet" type="text/css" href="{% static 'css/styles.css' %}">
+
+<div class="slide header" id="image_day_text">
+    <h1>Imagen del día</h1>
+    <a href= "https://apod.nasa.gov/apod/calendar/allyears.html" target="_blank">Fuentes: Nasa APOD API</a>
+</div>
+
+
+<div class="slide header" id="experiencia">
+    <h1>Experiencia</h1>
+</div>
+
+<div  id="slide1" class = "slide">
+    <div class = "title">
+        <h1>Slide 1<h1>
+        <p>{% lorem 1 b %}</p>
+    </div>
+
+
+    
+
+</div>
+
+<div id="contacto">
+    <h1>Contacto</h1>
+</div>
+
+
+
+
+    <footer>
+        <p>&copy; 2024</p>
+    </footer>
+</body>
+</html>
